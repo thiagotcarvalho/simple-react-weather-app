@@ -17,17 +17,61 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-center m-0 p-0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.App {
+  @apply text-center rounded-2xl bg-cyan-300;
+  @apply w-11/12 max-w-2xl h-96 mt-12 mb-0 mx-auto py-5 px-3;
+}
+
+/* SEARCH STYLES */
+.weather-search-engine {
+  @apply flex justify-around items-center w-full mt-7 mb-2;
+}
+
+.weather-search-engine input {
+  @apply w-3/4 h-11 py-1 px-4;
+  @apply border-solid border-2 rounded-lg outline-none;
+  @apply text-base bg-white text-slate-700;
+}
+
+.weather-search-engine button {
+  @apply py-3 px-2;
+  @apply border-none rounded-lg outline-none;
+  @apply bg-black text-white text-base cursor-pointer;
+}
+
+/* WEATHER STYLES */
+.weather-city-name h2{
+  @apply mt-5;
+  @apply text-4xl font-bold
+}
+
+.weather-loading {
+  @apply text-6xl font-extrabold text-black;
+}
+
+.weather-date {
+  @apply mb-4;
+  @apply text-lg font-medium italic;
+}
+
+.weather-temp {
+  @apply text-4xl font-semibold text-black text-center;
+}
+
+.weather-description {
+  @apply mt-0 mb-5;
+  @apply text-2xl text-black;
+}
+
+.weather-info {
+  @apply mt-5 py-0 px-5;
+  @apply flex justify-evenly items-center;
+  @apply text-lg font-semibold text-center;
+}
+
+.column {
+  @apply flex items-center leading-none;
 }
