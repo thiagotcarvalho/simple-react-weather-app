@@ -1,12 +1,16 @@
-import Image from "next/image";
-import Search from "./components/search/page";
+import { promises as fs } from 'fs';
 import Weather from "./components/weather/page";
 
-export default function Home() {
+export default async function Home() {
+  const file = await fs.readFile(process.cwd() + '/src/app/SECRETS.json', 'utf8');
+  const secrets = JSON.parse(file);
+
   return (
     <main>
       <div className="App">
-        <Weather />
+        <Weather
+          apiKey={secrets?.apiKeys?.openWeatherMap}
+        />
       </div>
     </main>
   );

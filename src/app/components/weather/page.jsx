@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Search from "../search/page";
 
-export default function Weather() {
+export default function Weather({ apiKey }) {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
@@ -14,8 +14,9 @@ export default function Weather() {
 
   async function fetchWeatherData(query) {
     setLoading(true);
-    const apiKey = '15dbb33e9cc8080478a125c6c156f615';
-    const weatherDataURL = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=${apiKey}`;
+    // const apiKey = '15dbb33e9cc8080478a125c6c156f615';
+    const appid = apiKey;
+    const weatherDataURL = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=${appid}`;
 
     try {
       const response = await fetch(weatherDataURL);
